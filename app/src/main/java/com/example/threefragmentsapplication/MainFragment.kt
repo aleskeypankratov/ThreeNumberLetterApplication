@@ -33,19 +33,19 @@ class MainFragment : Fragment() {
 
         button1.setOnClickListener {
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment123, firstFragment)
+                .replace(R.id.fragmentMain, firstFragment)
                 .commit()
         }
 
         button2.setOnClickListener {
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment123, secondFragment)
+                .replace(R.id.fragmentMain, secondFragment)
                 .commit()
         }
 
         button3.setOnClickListener {
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment123, thirdFragment)
+                .replace(R.id.fragmentMain, thirdFragment)
                 .commit()
         }
     }
