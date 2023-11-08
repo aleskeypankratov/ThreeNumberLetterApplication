@@ -31,22 +31,23 @@ class MainFragment : Fragment() {
         val secondFragment = SecondFragment()
         val thirdFragment = ThirdFragment()
 
-        button1.setOnClickListener {
+        fun addFragment(fragment: Fragment) {
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragmentMain, firstFragment)
+                .replace(R.id.fragmentMain, fragment)
+                .addToBackStack(null)
                 .commit()
+        }
+
+        button1.setOnClickListener {
+            addFragment(firstFragment)
         }
 
         button2.setOnClickListener {
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragmentMain, secondFragment)
-                .commit()
+            addFragment(secondFragment)
         }
 
         button3.setOnClickListener {
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragmentMain, thirdFragment)
-                .commit()
+            addFragment(thirdFragment)
         }
     }
 }
