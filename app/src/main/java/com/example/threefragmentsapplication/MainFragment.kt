@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.threefragmentsapplication.letterFragment.A_LetterFragment
+import com.example.threefragmentsapplication.letterFragment.B_LetterFragment
+import com.example.threefragmentsapplication.letterFragment.C_LetterFragment
 import com.example.threefragmentsapplication.numberFragment.FirstNumberFragment
 import com.example.threefragmentsapplication.numberFragment.SecondNumberFragment
 import com.example.threefragmentsapplication.numberFragment.ThirdNumberFragment
@@ -37,35 +40,50 @@ class MainFragment : Fragment() {
         buttonB = view.findViewById(R.id.buttonB)
         buttonC = view.findViewById(R.id.buttonC)
 
-        val firstFragment = FirstNumberFragment()
-        val secondFragment = SecondNumberFragment()
-        val thirdFragment = ThirdNumberFragment()
+        val firstNumberFragment = FirstNumberFragment()
+        val secondNumberFragment = SecondNumberFragment()
+        val thirdNumberFragment = ThirdNumberFragment()
+
+        val firstLetterFragment = A_LetterFragment()
+        val secondLetterFragment = B_LetterFragment()
+        val thirdLetterFragment = C_LetterFragment()
 
         fun addNumberFragment(fragment: Fragment) {
-            childFragmentManager.beginTransaction()
-                .replace(R.id., fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-
-        fun addLetterFragment(fragment: Fragment) {
-
             childFragmentManager.beginTransaction()
                 .replace(R.id.fragmentNumber, fragment)
                 .addToBackStack(null)
                 .commit()
         }
 
+        fun addLetterFragment(fragment: Fragment) {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragmentLetter, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         button1.setOnClickListener {
-            addNumberFragment(firstFragment)
+            addNumberFragment(firstNumberFragment)
         }
 
         button2.setOnClickListener {
-            addNumberFragment(secondFragment)
+            addNumberFragment(secondNumberFragment)
         }
 
         button3.setOnClickListener {
-            addNumberFragment(thirdFragment)
+            addNumberFragment(thirdNumberFragment)
+        }
+
+        buttonA.setOnClickListener {
+            addLetterFragment(firstLetterFragment)
+        }
+
+        buttonB.setOnClickListener {
+            addLetterFragment(secondLetterFragment)
+        }
+
+        buttonC.setOnClickListener {
+            addLetterFragment(thirdLetterFragment)
         }
     }
 }
