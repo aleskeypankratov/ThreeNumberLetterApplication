@@ -51,14 +51,14 @@ class MainFragment : Fragment() {
         fun addNumberFragment(fragment: Fragment) {
             childFragmentManager.beginTransaction()
                 .replace(R.id.fragmentNumber, fragment)
-                .addToBackStack(null)
+                .addToBackStack(fragment.id.toString())
                 .commit()
         }
 
         fun addLetterFragment(fragment: Fragment) {
             childFragmentManager.beginTransaction()
                 .replace(R.id.fragmentLetter, fragment)
-                .addToBackStack(null)
+                .addToBackStack(fragment.id.toString())
                 .commit()
         }
 
